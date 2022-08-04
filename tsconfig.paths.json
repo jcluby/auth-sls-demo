@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@infra/*": ["infra/*"],
+      "@functions/*": ["infra/functions/*"],
+      "@libs/*": ["infra/libs/*"],
+      "@core/*": ["core/*"],
+      "@domain/*": ["domain/*"],
+      "@useCases/*": ["useCases/*"],
+      "@application/*": ["application/*"]
+    }
+  }
+}
