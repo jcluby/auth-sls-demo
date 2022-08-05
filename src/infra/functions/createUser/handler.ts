@@ -6,9 +6,7 @@ import { createUserController } from '@useCases/CreateUser'
 import schema from './schema'
 
 const createUser: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async event => {
-  const { body, headers } = event
-
-  console.log(headers)
+  const { body } = event
 
   const httpResponse = await createUserController.handle(body)
 

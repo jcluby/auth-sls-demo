@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { AWS } from '@serverless/typescript'
 
-import { authorizeToken, createUser } from '@functions/index'
+import { authorizeToken, login, createUser } from '@functions/index'
 
 import { dynamoResources } from '@infra/resourcesFunctions'
 
@@ -24,7 +24,7 @@ const serverlessConfiguration: AWS = {
     region: 'us-east-1',
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      AUTH_SLS_DEMO: '${self:service}-${opt:stage, self:provider.stage}',
+      NAME_MS: '${self:service}-${opt:stage, self:provider.stage}',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
       JWT_SECRET: '${self:custom.environment.JWT_SECRET}',
     },
@@ -45,7 +45,7 @@ const serverlessConfiguration: AWS = {
               'dynamodb:CreateTable',
             ],
             Resource:
-              'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.AUTH_SLS_DEMO}/*',
+              'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.NAME_MS}/*',
           },
         ],
       },
@@ -54,6 +54,7 @@ const serverlessConfiguration: AWS = {
   // import the function via paths
   functions: {
     authorizeToken,
+    login,
     createUser,
   },
   package: { individually: true },

@@ -3,7 +3,7 @@ export default {
   UsersTable: {
     Type: 'AWS::DynamoDB::Table',
     Properties: {
-      TableName: '${self:provider.environment.AUTH_SLS_DEMO}',
+      TableName: '${self:provider.environment.NAME_MS}',
       KeySchema: [
         {
           AttributeName: 'pk',

@@ -1,7 +1,16 @@
 import { SchemaDefinition } from 'dynamoose/dist/Schema'
 
 export const UserSchema: SchemaDefinition = {
-  login: {
+  id: {
+    type: String,
+  },
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  lastname: {
     type: String,
   },
 }

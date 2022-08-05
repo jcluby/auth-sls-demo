@@ -1,10 +1,10 @@
 export default {
   type: 'object',
   properties: {
-    userId: { type: 'string' },
-    login: { type: 'string' },
-    accountId: { type: 'string' },
+    id: { type: 'string' },
+    email: { type: 'string' },
     name: { type: 'string' },
+    lastname: { type: 'string' },
   },
-  required: ['login', 'name', 'accountId'],
+  required: ['email', 'name', 'lastname'],
 } as const
